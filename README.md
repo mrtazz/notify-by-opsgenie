@@ -20,13 +20,13 @@ Usage of ./notify-by-opsgenie:
 But you probably want to use it in Nagios. For this define commands like this:
 ```
 define command{
-	command_name	notify-host-opsgenie
+  command_name	notify-host-opsgenie
   command_line  $USER1$/notify-by-opsgenie -H="$HOSTNAME$" -s="$HOSTSTATE$" -c="OPSGENIEKEY" -t="$NOTIFICATIONTYPE$" -d="$HOSTOUTPUT$" -T="$LONGDATETIME$" -u="$CONTACTEMAIL$"
 }
 
 define command{
-	command_name	notify-service-opsgenie
-  command_line  $USER1$/notify-by-opsgenie -H="$HOSTNAME$" -S="$SERVICEDESC$" -s="$SERVICESTATE$" -c="OPSGENIEKEY" -t="$NOTIFICATIONTYPE$" -d="$HOSTOUTPUT$" -T="$LONGDATETIME$" -u="$CONTACTEMAIL$"
+  command_name	notify-service-opsgenie
+  command_line  $USER1$/notify-by-opsgenie -H="$HOSTNAME$" -S="$SERVICEDESC$" -s="$SERVICESTATE$" -c="OPSGENIEKEY" -t="$NOTIFICATIONTYPE$" -d="$SERVICEOUTPUT$" -T="$LONGDATETIME$" -u="$CONTACTEMAIL$"
 }
 ```
 And then set up a contact to use the commands for notifications like this:
